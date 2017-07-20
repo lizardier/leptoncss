@@ -1,0 +1,39 @@
+// Realy small, simple, 'medium'-responsive grid by Alexey Yurchenko.
+clearfix(element)
+	{element}:before,
+	{element}:after
+		content ""
+		display table
+
+	{element}:after
+		clear both
+
+grid(columns, gutter, border = 0px, options = { row:".grid", column:".cell" })
+	row = selector(options["row"])
+	column = selector(options["column"])
+	single_column_width = (100% - ((gutter + border) * (columns - 1))) / columns
+
+	clearfix(row)
+
+	/* Columns */
+	find_column = slice(options["column"], 1)
+	{row} > *[class*=\"{find_column}-\"]
+		position relative
+		float left
+
+	*[class*=\"{find_column}-\"] + *[class*=\"{find_column}-\"]
+		margin-left gutter
+
+	for i in (1..columns)
+		{column}-{i}
+			width i != 1 ? (single_column_width * i) + ((gutter + border) * (i - 1)) : single_column_width
+
+	@media (max-width: 550px)
+		{row}
+			width 100%
+		*[class*=\"{find_column}-\"]
+			display block
+			width inherit
+			float none
+		*[class*=\"{find_column}-\"] + *[class*=\"{find_column}-\"]
+			margin-left 0

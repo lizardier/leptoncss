@@ -1,0 +1,239 @@
+@import "_grid.styl"
+
+// Colors
+neutral = #666666
+dark-neutral = #424242
+red = #EF5350
+dark-red = #E53935
+green = #66BB6A
+dark-green = #43A047
+blue = #1E88E5
+dark-blue = #1976D2
+
+// Grid Properties
+gutter = 1.5%
+border = 0
+columns = 8
+
+// Body and font
+*
+  font-family "PT Sans"
+
+// Buttons
+.button
+  margin-bottom 10px
+  background none
+  border 1px solid #9E9E9E
+  padding 10px 15px
+  outline none
+  cursor default
+  font-size 14px
+
+  &:hover
+    background #9E9E9E
+    color #fff
+
+  &.large
+    padding 20px 25px
+
+  &.medium
+    padding 10px 15px
+
+  &.small
+    padding 6px
+
+  &.neutral
+    background neutral
+    border 0
+    color #fff
+
+    &:hover
+      background dark-neutral
+
+  &.red
+    border 0
+    background red
+    color #fff
+
+    &:hover
+      background dark-red
+
+  &.green
+    border 0
+    background green
+    color #fff
+
+    &:hover
+      background dark-green
+
+  &.blue
+    border 0
+    background blue
+    color #fff
+
+    &:hover
+      background dark-blue
+
+// Displays && Sizes
+.all-on-line > *
+  display inline-block
+
+.each-on-line > *
+  display block
+
+.full, .half, .third, .ten
+  display block
+
+.full
+  width 100%
+
+.half
+  width 50%
+
+.third
+  width 30%
+
+.ten
+  width 10%
+
+// Typography
+h1,h2,h3,h4,h5,h6
+  font-weight normal
+
+  code, pre
+    margin-left 10px
+    font-size 15px
+
+h1
+  font-size 35px
+
+h2
+  font-size 30px
+
+h3
+  font-size 25px
+
+h4
+  font-size 20px
+
+h5
+  font-size 15px
+
+h6
+  font-size 10px
+
+code
+  background #e6e6e6
+  padding 5px
+  font-family Consolas, Inconsolata, monospace
+
+.muted
+  color gray
+
+  &.small
+    font-size 15px
+
+  &.large
+    font-size 20px
+
+.bold
+  font-weight bold
+
+.light
+  font-weight lighter
+
+.normal
+  font-weight normal
+
+.heavy
+  font-weight bolder
+
+// Progress bar
+.progress
+  background #eee
+  max-width 300px
+  height 25px
+  position relative
+  margin-bottom 10px
+
+  .bar
+    position relative
+    background green
+    height inherit
+
+    &.red
+      background red
+
+    &.blue
+      background blue
+
+  .value
+    position absolute
+    top 3px
+    left 0
+    display flex
+    width 100%
+    color dark-neutral
+    font-size 15px
+    justify-content center
+
+// Grid
+grid(columns, gutter)
+
+// Box
+.box
+  position relative
+  padding 15px
+  box-shadow 3px 3px 3px rgba(0, 0, 0, 0.1)
+  border 1px solid #eee
+  margin-bottom 10px
+
+  .header
+    position absolute
+    top 0
+    left 0
+    width 100%
+    text-align center
+    background #eee
+
+  .header + .content
+    margin-top 20px
+
+  &.red
+    border-color red
+
+  &.neutral
+    border-color neutral
+
+  &.green
+    border-color green
+
+  &.blue
+    border-color blue
+
+// Input
+input[type="text"]
+  border 0
+  background #fff
+  color black
+  padding 10px
+  border-bottom 2px solid transparent
+  outline none
+  transition border-bottom-color .2s
+  margin-bottom 10px
+
+  &:focus
+    border-bottom-color neutral
+
+  &.red:focus
+    border-bottom-color red
+
+  &.green:focus
+    border-bottom-color green
+
+  &.blue:focus
+    border-bottom-color blue
+
+  &.large
+    padding 15px
+    font-size 15px
